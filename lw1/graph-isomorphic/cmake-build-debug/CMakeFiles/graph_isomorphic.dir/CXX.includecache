@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/lull/GitHub/graph-isomorphic/Graph/CGraph.cpp
+CGraph.h
+/Users/lull/GitHub/graph-isomorphic/Graph/CGraph.h
+
+/Users/lull/GitHub/graph-isomorphic/Graph/CGraph.h
+iostream
+-
+list
+-
+limits.h
+-
+
+/Users/lull/GitHub/graph-isomorphic/main.cpp
+iostream
+-
+Graph/CGraph.h
+/Users/lull/GitHub/graph-isomorphic/Graph/CGraph.h
+

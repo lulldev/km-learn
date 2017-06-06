@@ -40,9 +40,37 @@ bool CGraph::IsCyclicUtil(int v, bool visited[], bool *recStack)
     return false;
 }
 
+// This function is a variation of DFSUytil() in http://www.geeksforgeeks.org/archives/18212
+bool CGraph::IsCyclicUtil2(int v, bool visited[], bool *recStack, int &cycleCount)
+{
+    if (visited[v] == false)
+    {
+        visited[v] = true;
+        recStack[v] = true;
+
+        list<int>::iterator i;
+        for (i = adjacencyList[v].begin(); i != adjacencyList[v].end(); ++i)
+        {
+            if (!visited[*i] && IsCyclicUtil2(*i, visited, recStack, cycleCount))
+            {
+                cycleCount++;
+                return true;
+            }
+            else if (recStack[*i])
+            {
+                cycleCount++;
+                return true;
+            }
+        }
+        cout << cycleCount << endl;
+        cycleCount = 0;
+    }
+    recStack[v] = false; // remove the vertex from recursion stack
+    return false;
+}
 // Returns true if the CGraph contains a cycle, else false.
 // This function is a variation of DFS() in http://www.geeksforgeeks.org/archives/18212
-bool CGraph::IsGraphHaveCycle()
+int CGraph::GetGraphCycleCount()
 {
     // Mark all the vertices as not visited and not part of recursion
     // stack
@@ -57,13 +85,19 @@ bool CGraph::IsGraphHaveCycle()
 
     // Call the recursive helper function to detect cycle in different
     // DFS trees
+    int cycleCount = 0;
+
     for (int i = 0; i < verticesCount; i++)
     {
-        if (IsCyclicUtil(i, visited, recStack))
-        {
-            return true;
-        }
+        cycleCount = 0;
+        IsCyclicUtil2(i, visited, recStack, cycleCount);
+//        if (IsCyclicUtil(i, visited, recStack))
+//        {
+//            cycleCount++;
+//            return true;
+//        }
     }
 
-    return false;
+    return -1;
+//    return false;
 }

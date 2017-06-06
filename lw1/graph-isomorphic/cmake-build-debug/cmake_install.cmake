@@ -1,4 +1,4 @@
-# Install script for directory: /Users/lull/GitHub/graph-isomorphic
+# Install script for directory: /Users/lull/GitHub/km-learn/lw1/graph-isomorphic
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -35,5 +35,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/lull/GitHub/graph-isomorphic/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/lull/GitHub/km-learn/lw1/graph-isomorphic/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

@@ -7,10 +7,11 @@ class CGraph
 public:
     CGraph(int verticesCount); // Constructor
     void AddEdge(int v, int w); // to add an edge to graph
-    bool IsGraphHaveCycle(); // returns true if there is a cycle in this graph
+    int GetGraphCycleCount();
 
 private:
     int verticesCount; // No. of vertices
     std::list<int> *adjacencyList; // Pointer to an array containing adjacency lists
-    bool IsCyclicUtil(int v, bool visited[], bool *rs); // used by isCyclic()
+    bool IsCyclicUtil(int v, bool visited[], bool *rs);
+    bool IsCyclicUtil2(int v, bool visited[], bool *rs, int &cycleCount);
 };
